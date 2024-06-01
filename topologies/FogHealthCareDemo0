@@ -1,0 +1,132 @@
+{
+    "nodes": [
+        {
+            "level": 1,
+            "upBw": 10000,
+            "ratePerMips": 0.0,
+            "name": "Proxy Server",
+            "type": "FOG_DEVICE",
+            "mips": 2800,
+            "ram": 4000,
+            "downBw": 10000
+        },
+        {
+            "min": 65.0,
+            "max": 170.0,
+            "sensorType": "EEG",
+            "name": "Body Temperature Sensor",
+            "type": "SENSOR",
+            "distribution": 3
+        },
+        {
+            "level": 2,
+            "upBw": 4,
+            "ratePerMips": 0.0,
+            "name": "Fog2",
+            "type": "FOG_DEVICE",
+            "mips": 54,
+            "ram": 4,
+            "downBw": 4
+        },
+        {
+            "level": 2,
+            "upBw": 4,
+            "ratePerMips": 0.0,
+            "name": "Fog1",
+            "type": "FOG_DEVICE",
+            "mips": 54,
+            "ram": 4,
+            "downBw": 4
+        },
+        {
+            "min": 10.0,
+            "max": 120.0,
+            "sensorType": "EEG",
+            "name": "SpO2 Sensor",
+            "type": "SENSOR",
+            "distribution": 3
+        },
+        {
+            "name": "Alert Mail",
+            "type": "ACTUATOR",
+            "actuatorType": "Software"
+        },
+        {
+            "level": 0,
+            "upBw": 100,
+            "ratePerMips": 0.01,
+            "name": "Cloud",
+            "type": "FOG_DEVICE",
+            "mips": 15200,
+            "ram": 64000,
+            "downBw": 10000
+        },
+        {
+            "sensorType": "EEG",
+            "name": "BP Sensor",
+            "type": "SENSOR",
+            "distribution": 2,
+            "value": 100.0
+        },
+        {
+            "min": 10.0,
+            "max": 120.0,
+            "sensorType": "EEG",
+            "name": "Gluecose Sensor",
+            "type": "SENSOR",
+            "distribution": 3
+        },
+        {
+            "name": "Alert",
+            "type": "ACTUATOR",
+            "actuatorType": "Software"
+        }
+    ],
+    "links": [
+        {
+            "latency": 100.0,
+            "destination": "Cloud",
+            "source": "Proxy Server"
+        },
+        {
+            "latency": 1.0,
+            "destination": "Fog2",
+            "source": "Body Temperature Sensor"
+        },
+        {
+            "latency": 80.0,
+            "destination": "Proxy Server",
+            "source": "Fog2"
+        },
+        {
+            "latency": 80.0,
+            "destination": "Proxy Server",
+            "source": "Fog1"
+        },
+        {
+            "latency": 10.0,
+            "destination": "Fog2",
+            "source": "BP Sensor"
+        },
+        {
+            "latency": 10.0,
+            "destination": "Fog2",
+            "source": "Alert Mail"
+        },
+        {
+            "latency": 10.0,
+            "destination": "Fog1",
+            "source": "SpO2 Sensor"
+        },
+        {
+            "latency": 10.0,
+            "destination": "Fog1",
+            "source": "Alert"
+        },
+        {
+            "latency": 10.0,
+            "destination": "Fog1",
+            "source": "Gluecose Sensor"
+        }
+    ]
+}
