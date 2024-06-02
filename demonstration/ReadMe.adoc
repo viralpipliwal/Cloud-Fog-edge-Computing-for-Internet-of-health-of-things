@@ -1,0 +1,39 @@
+:Author: ridamkrishna
+:Email: ridamkrishna@gmail.com
+:Date: 15/05/2024
+:Revision: version#2.1
+
+= Project: {Cloud IoT Demo}
+
+Demonstration of the proposed architecture in which fog layer is implemented in order to reduce latency and network usage when transferring data from edge side to cloud layer. By performing most of the computation at the user end and uploading data only when necessary greatly helps in achieving efficient system.
+
+== Step 1: Installation
+Download the latest version of wire.h, SoftwareSerial.h, MAX30100_PulseOximeter.h libraries.
+
+== Step 2: Assemble the circuit
+Assemble the circuit following the diagram connection_diagram.jpg attached to the folder.
+
+== Step 3: Load the code
+Upload the code contained in this sketch on to your board
+
+=== Folder structure
+
+....
+ Demonstration                      => Arduino sketch folder
+  ├── cloud-iot-demo(arduino).ino   => Sketch file for Arduino board
+  ├── arduino_secrets.h             => Network credential file
+  ├── thingProperties.h             => Cloud code for Initializing
+  ├── cloud-iot-demo(esp8266).ino   => Sketch file for ESP8266 board
+  ├── connection_diagram.jpg        => circuit diagram
+  └── ReadMe.adoc                   => This file
+....
+
+=== BOM
+
+|===
+| S.no. |           Part name           | Quantity | Price |
+|   1   | ESP8266 NodeMCU               |    1     | 265   |
+|   2   | Arduino Uno/Nano              |    1     | 250   |
+|   3   | MAX30100 PulseOximeter Sensor |    1     | 12    |
+|   4   | Wires                         |  1/2 m.  | 10    |      
+|===
